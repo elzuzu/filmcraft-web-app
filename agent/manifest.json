@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.25",
+  "build": "web.26",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -171,7 +171,7 @@
     "signed": false,
     "maxAssets": 10000,
     "maxImageAliases": 10000,
-    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB. Optional previews share a 256 MiB cache budget; older builds reject version 2 packages.",
+    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB. Optional previews share a 256 MiB cache budget; older builds reject version 2 packages. OPFS package materialization is available; restart recovery requires Web Locks and a persistent profile. Browser-internal memory is not bounded.",
     "selection": {
       "excludeUnusedDefault": false,
       "sequences": "existing sequence IDs; used for filtering when excludeUnused is true",
@@ -192,7 +192,8 @@
         "job"
       ],
       "notes": "Eligible video, mono/stereo audio, and labelled WAVE_FORMAT_EXTENSIBLE 5.1 (0x3f, PCM 8/16/24 or float32) are re-encoded; unsupported media are copied whole."
-    }
+    },
+    "diskStorage": true
   },
   "exportMemory": {
     "storage": "JavaScript blocks and final Blob",
@@ -226,6 +227,7 @@
     "mediaCopiesAsync": true,
     "notes": "New media copies pass full SHA-256 verification after copying and again after restart; older copies are legacy and unverified. Verification runs in background. New package assets and aliases are copied after successful package opening; older numeric aliases are not migrated. Snapshot-bound image manifests cover up to 10000 positions including gaps. SHA-256 is not a signature and storage may be evicted.",
     "statusInSettings": true,
-    "cleanup": "Explicitly list/delete only inactive unmarked media-v2 residues under the recovery owner lock; marked, open, legacy, package and Chromium swap files are excluded."
+    "cleanup": "Explicitly list/delete only inactive unmarked media-v2 residues under the recovery owner lock; marked, open, legacy, package and Chromium swap files are excluded.",
+    "copyQueue": "one shared worker across imports"
   }
 }

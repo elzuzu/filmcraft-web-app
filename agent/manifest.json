@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.24",
+  "build": "web.25",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -53,7 +53,9 @@
       "listOrphanDiskExports",
       "claimOrphanDiskExport",
       "deleteOrphanDiskExport",
-      "startDiskProxies"
+      "startDiskProxies",
+      "listUncommittedRecoveryMedia",
+      "deleteUncommittedRecoveryMedia"
     ],
     "docs": "AGENTS.md"
   },
@@ -99,7 +101,9 @@
         "filmcraft_list_orphan_disk_exports",
         "filmcraft_claim_orphan_disk_export",
         "filmcraft_delete_orphan_disk_export",
-        "filmcraft_start_disk_proxies"
+        "filmcraft_start_disk_proxies",
+        "filmcraft_list_uncommitted_recovery_media",
+        "filmcraft_delete_uncommitted_recovery_media"
       ]
     }
   },
@@ -220,7 +224,8 @@
     "checksummedSlots": 2,
     "exclusiveWebLock": true,
     "mediaCopiesAsync": true,
-    "notes": "New media copies pass full SHA-256 verification after copying and again after restart; old copies are legacy and unverified. Verification runs in background. Eligible /files image sequences use snapshot-bound manifests up to 10000 positions including gaps; package aliases untracked. SHA-256 is not a signature and storage may be evicted.",
-    "statusInSettings": true
+    "notes": "New media copies pass full SHA-256 verification after copying and again after restart; older copies are legacy and unverified. Verification runs in background. New package assets and aliases are copied after successful package opening; older numeric aliases are not migrated. Snapshot-bound image manifests cover up to 10000 positions including gaps. SHA-256 is not a signature and storage may be evicted.",
+    "statusInSettings": true,
+    "cleanup": "Explicitly list/delete only inactive unmarked media-v2 residues under the recovery owner lock; marked, open, legacy, package and Chromium swap files are excluded."
   }
 }

@@ -67,7 +67,8 @@
         "filmcraft_type",
         "filmcraft_close",
         "filmcraft_open_project",
-        "filmcraft_relink"
+        "filmcraft_relink",
+        "filmcraft_attach_proxy"
       ]
     }
   },

@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.34",
+  "build": "web.35",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -57,7 +57,9 @@
       "listUncommittedRecoveryMedia",
       "deleteUncommittedRecoveryMedia",
       "listUncommittedPersistentProjects",
-      "deleteUncommittedPersistentProject"
+      "deleteUncommittedPersistentProject",
+      "captureImportOrigin",
+      "releaseImportOrigin"
     ],
     "docs": "AGENTS.md"
   },
@@ -238,7 +240,7 @@
     "fastStart": false,
     "memoryBounded": false,
     "notes": "Queued output capped; total memory is not bounded. Inactive web.22 exports can be claimed with SHA-256 validation or explicitly deleted under Web Locks in the same persistent profile and origin. Legacy files excluded. GIF writes incrementally; encoder and browser memory are not bounded.",
-    "captionSidecar": "SRT or VTT in session memory, with SHA-256 verification for agent copies; a restart-recovered spool does not include the caption file."
+    "captionSidecar": "With Web Locks, SRT/VTT sidecars are stored alongside versioned disk exports and verified before recovery; old manifests remain readable. Without Web Locks sidecars remain session-only. Local media and caption copies are separate operations."
   },
   "recovery": {
     "checksummedSlots": 2,
@@ -250,7 +252,8 @@
     "copyQueue": "one shared worker across imports"
   },
   "audioImport": {
-    "mp3": "Compatible MPEG Layer III streams use indexed bounded-window decoding; without Xing/Info, contiguous frames are scanned to determine duration, with fallback for unsupported structures. Index and browser cache limits apply.",
-    "aacAdts": "Standalone ADTS uses a complete initial compressed-frame scan with sparse decoder checkpoints and bounded PCM windows. Long imports can take minutes; HE-AAC retains the existing core-upsample limitation."
-  }
+    "mp3": "Compatible MPEG Layer III streams use indexed bounded-window decoding; without Xing/Info, contiguous frames are scanned to determine duration, with fallback for unsupported structures. Index and browser cache limits apply. VBRI version 1 with zero encoder delay is also supported; other VBRI remains on the earlier path.",
+    "aacAdts": "Standalone ADTS uses a complete initial compressed-frame scan with sparse decoder checkpoints and bounded PCM windows. Long imports can take minutes; HE-AAC retains the existing core-upsample limitation. Browser and MCP report scan progress for supported ADTS; completion is determined separately."
+  },
+  "importProtection": "Private bridge captures an opaque project-origin token before local file preparation; older builds require explicit allowUnprotectedOrigin opt-in."
 }

@@ -19,10 +19,10 @@
 - **Animer** : position, échelle, rotation, opacité, plus de 90 effets et une trentaine de transitions, keyframes linéaires/Bezier/hold.
 - **Son** : mixage, EQ, dynamique, limiteur true-peak, automation, vumètres ITU-R BS.1770 / EBU R128.
 - **Titrer** : moteur de texte OpenType, titres, formes, tracés, sous-titres SRT/WebVTT/SCC.
-- **Exporter** : H.264 MP4 + AAC, ProRes 422 HQ, DNxHR, GIF, WAV, séquences PNG, avec rendu en arrière-plan.
+- **Exporter** : H.264 MP4 + AAC, ProRes 422 HQ, DNxHR, GIF, WAV, séquences PNG, avec rendu en arrière-plan. L’option de stockage navigateur pour H.264 limite le tampon de sortie pendant l’encodage ; la mémoire totale reste dépendante du projet.
 - **Prévisualiser** : rendre les aperçus vidéo et audio de la séquence pour accélérer leur lecture pendant la session. Le cache partagé est limité à 256 Mio ; le rendu peut utiliser davantage de mémoire temporaire.
 
-Le **gestionnaire de projet** peut télécharger un paquet `.fcpack` contenant une copie du projet, ses médias liés, ses séquences d’images et ses proxys. Ouvrez ce paquet par **Fichier → Ouvrir** ou par glisser-déposer. Vous pouvez limiter la collecte aux séquences choisies et à leurs dépendances, exclure les proxys et inclure les aperçus audio et vidéo disponibles. Les médias inclus manquants empêchent la création. La consolidation peut réduire et transcoder les vidéos et les fichiers audio mono ou stéréo compatibles ; les médias incompatibles sont conservés entiers et signalés. Les paquets avec aperçus nécessitent web.18 ou une version ultérieure. Le paquet vérifie ses données, mais n’est ni chiffré ni signé.
+Le **gestionnaire de projet** peut télécharger un paquet `.fcpack` contenant une copie du projet, ses médias liés, ses séquences d’images et ses proxys. Ouvrez ce paquet par **Fichier → Ouvrir** ou par glisser-déposer. Vous pouvez limiter la collecte aux séquences choisies et à leurs dépendances, exclure les proxys et inclure les aperçus audio et vidéo disponibles. Les médias inclus manquants empêchent la création. La consolidation peut réduire et transcoder les vidéos et les fichiers audio compatibles, y compris certains WAV 5.1 dont les canaux sont identifiés ; les médias incompatibles sont conservés entiers et signalés. Les paquets avec aperçus nécessitent web.18 ou une version ultérieure. Le paquet vérifie ses données, mais n’est ni chiffré ni signé.
 
 Le projet de démo s'ouvre au chargement. Vous pouvez importer vos propres fichiers par glisser-déposer ou avec **Importer**.
 
@@ -84,7 +84,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.20 du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.21 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 

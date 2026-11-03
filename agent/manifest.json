@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.20",
+  "build": "web.21",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -44,7 +44,11 @@
       "openPackage",
       "savePersistentProject",
       "listPersistentProjects",
-      "openPersistentProject"
+      "openPersistentProject",
+      "deletePersistentProject",
+      "startDiskExport",
+      "diskExportStatus",
+      "releaseDiskExport"
     ],
     "docs": "AGENTS.md"
   },
@@ -81,7 +85,11 @@
         "filmcraft_open_package",
         "filmcraft_save_persistent_project",
         "filmcraft_list_persistent_projects",
-        "filmcraft_open_persistent_project"
+        "filmcraft_open_persistent_project",
+        "filmcraft_delete_persistent_project",
+        "filmcraft_start_disk_export",
+        "filmcraft_disk_export_status",
+        "filmcraft_release_disk_export"
       ]
     }
   },
@@ -142,7 +150,7 @@
       "numbered image sequences"
     ],
     "limitations": [
-      "multichannel and other unsupported media are copied whole during consolidation"
+      "unsupported multichannel layouts and other nonstandard media are copied whole during consolidation"
     ],
     "encrypted": false,
     "signed": false,
@@ -168,7 +176,7 @@
         "copiedMedia",
         "job"
       ],
-      "notes": "Eligible video and mono/stereo audio are re-encoded; unsupported media are copied whole. Proxies and previews are unavailable during consolidation."
+      "notes": "Eligible video, mono/stereo audio, and labelled WAVE_FORMAT_EXTENSIBLE 5.1 (0x3f, PCM 8/16/24 or float32) are re-encoded; unsupported media are copied whole."
     }
   },
   "exportMemory": {
@@ -188,5 +196,19 @@
     "scope": "browser profile and origin",
     "evictable": true,
     "notes": "Unique snapshots do not contain media or mark the project saved. Direct synchronous /opfs/ writes are refused."
+  },
+  "diskExport": {
+    "format": "h264/mp4",
+    "storage": "OPFS",
+    "maxPendingBytes": 67108864,
+    "fastStart": false,
+    "memoryBounded": false,
+    "notes": "Only queued output bytes are capped; encoder and index remain in memory. Copy before explicit release. Abrupt closure can leave orphan files in site storage."
+  },
+  "recovery": {
+    "checksummedSlots": 2,
+    "exclusiveWebLock": true,
+    "mediaCopiesAsync": true,
+    "notes": "Reload second tabs after owner closes and close/reload older web.20 tabs. Without Web Locks recovery is disabled; media may remain offline after interruption or quota failure."
   }
 }

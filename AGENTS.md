@@ -152,3 +152,12 @@ these snapshots and `openPersistentProject(id)` opens one, replacing the current
 project. Media and proxies are separate; storage is bound to the browser profile
 and origin, may be evicted, and the snapshot does not mark the open project saved.
 Direct synchronous `/opfs/` writes are rejected. Maximum snapshot size: 256 MiB.
+
+On web.21+, `startDiskExport(params)` starts a H.264 MP4 export to OPFS; poll
+`jobs.list`, inspect `diskExportStatus(path)`, copy the output, then call
+`releaseDiskExport(path)`. The output queue is capped at 64 MiB per step, but
+encoder and index memory remain; the MP4 is not fast-start and an abrupt tab
+closure can leave a spool file. `deletePersistentProject(id)` deletes one
+acknowledged project snapshot. Automatic recovery uses checksummed slots and a
+Web Lock; close or reload old web.20 tabs and reload a second tab after the owner
+closes. Media copies remain asynchronous and may be offline after interruption.

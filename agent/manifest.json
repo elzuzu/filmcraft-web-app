@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.32",
+  "build": "web.33",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -234,7 +234,8 @@
     "maxPendingBytes": 67108864,
     "fastStart": false,
     "memoryBounded": false,
-    "notes": "Queued output capped; total memory is not bounded. Inactive web.22 exports can be claimed with SHA-256 validation or explicitly deleted under Web Locks in the same persistent profile and origin. Legacy files excluded."
+    "notes": "Queued output capped; total memory is not bounded. Inactive web.22 exports can be claimed with SHA-256 validation or explicitly deleted under Web Locks in the same persistent profile and origin. Legacy files excluded.",
+    "captionSidecar": "SRT or VTT in session memory, with SHA-256 verification for agent copies; a restart-recovered spool does not include the caption file."
   },
   "recovery": {
     "checksummedSlots": 2,
@@ -244,5 +245,9 @@
     "statusInSettings": true,
     "cleanup": "Explicitly list/delete only inactive unmarked media-v2 residues under the recovery owner lock; marked, open, legacy, package and Chromium swap files are excluded.",
     "copyQueue": "one shared worker across imports"
+  },
+  "audioImport": {
+    "mp3": "Compatible standalone Xing/Info MP3 uses indexed bounded-window decoding; others retain the previous whole-file path. Index grows with frame count and is capped at 8 million frames.",
+    "aacAdts": "Existing whole-file path."
   }
 }

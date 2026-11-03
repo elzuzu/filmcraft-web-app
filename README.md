@@ -10,6 +10,8 @@
 
 ---
 
+> Version modifiée indépendante, basée sur FilmCraft par l’équipe ArtCraft.
+
 ## Ce que vous pouvez faire
 
 - **Monter** : timeline multi-pistes, montage en trois points, insert/overwrite, ripple, roll, slip, slide, rate stretch, rasoir, transitions, marqueurs, nests, multicam.

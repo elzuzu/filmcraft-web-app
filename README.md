@@ -27,7 +27,7 @@ Le projet de démo s'ouvre au chargement. Vous pouvez importer vos propres fichi
 
 Le suivi des masques fonctionne depuis les contrôles d’effet et par commande, avec traitement progressif. Les images clés déjà calculées sont conservées en cas d’arrêt ; modifier ou remplacer le projet interrompt le suivi en cours.
 
-Les proxys peuvent être créés dans le navigateur par lots de huit médias vidéo au maximum (H.264 ou ProRes). Le fichier reste dans la session et est proposé au téléchargement : conservez-le si vous souhaitez le réutiliser.
+Les proxys peuvent être créés dans le navigateur par lots de médias vidéo (H.264 ou ProRes), traités un à un. La taille pratique du lot dépend de la mémoire disponible. Le fichier reste dans la session et est proposé au téléchargement : conservez-le si vous souhaitez le réutiliser.
 
 ## Configuration
 

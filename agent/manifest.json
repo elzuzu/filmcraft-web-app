@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.5",
+  "build": "web.6",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -75,5 +75,12 @@
     "sample": "samples/ocean-sunset.mp4",
     "procedural": true
   },
-  "license": "MIT OR Apache-2.0"
+  "license": "MIT OR Apache-2.0",
+  "proxy": {
+    "singleItem": true,
+    "cooperative": true,
+    "supportsCancellation": true,
+    "virtualDestination": "/exports/Proxies",
+    "notes": "One imported video per request; wait:true is unsupported."
+  }
 }

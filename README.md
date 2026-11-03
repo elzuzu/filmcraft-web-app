@@ -25,6 +25,8 @@ Le projet de démo s'ouvre au chargement. Vous pouvez importer vos propres fichi
 
 **Clip d'essai :** [`samples/ocean-sunset.mp4`](samples/ocean-sunset.mp4) (2 s, 640×360, généré par FilmCraft) — téléchargez-le puis glissez-le dans l'application.
 
+Les proxys peuvent être créés dans le navigateur pour un média vidéo à la fois (H.264 ou ProRes). Le fichier reste dans la session et est proposé au téléchargement : conservez-le si vous souhaitez le réutiliser.
+
 ## Configuration
 
 | | |

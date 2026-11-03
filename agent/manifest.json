@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.28",
+  "build": "web.29",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -111,7 +111,8 @@
     "sample": "samples/ocean-sunset.mp4",
     "procedural": true,
     "wavRandomAccessPrewarm": true,
-    "aiffRandomAccess": "uncompressed PCM 8/16/24/32-bit; full prewarm avoided when compatible COMM lies within first 64 KiB"
+    "aiffRandomAccess": "uncompressed PCM 8/16/24/32-bit; full prewarm avoided when compatible COMM lies within first 64 KiB",
+    "aifcRandomAccess": "integer PCM NONE, twos, sowt, 8/16/24/32-bit; full prewarm avoided when compatible COMM is within first 64 KiB"
   },
   "license": "MIT OR Apache-2.0",
   "proxy": {
@@ -196,7 +197,8 @@
       "notes": "Eligible video, mono/stereo audio, and labelled WAVE_FORMAT_EXTENSIBLE 5.1 (0x3f, PCM 8/16/24 or float32) are re-encoded; unsupported media are copied whole."
     },
     "diskStorage": true,
-    "openCancellation": "AbortSignal checked before final project replacement; cancellation after commit begins may be too late"
+    "openCancellation": "AbortSignal checked before final project replacement; cancellation after commit begins may be too late",
+    "createCancellation": "AbortSignal checked before publication; cancellation during consolidation waits for child jobs. Cancellation after publication begins may be too late."
   },
   "exportMemory": {
     "storage": "JavaScript blocks and final Blob",
@@ -214,7 +216,7 @@
     "maxBytes": 268435456,
     "scope": "browser profile and origin",
     "evictable": true,
-    "notes": "Unique snapshots do not contain media or mark the project saved. Direct synchronous /opfs/ writes are refused. Stored bytes are verified against source SHA-256 before save acknowledgement; no digest is persisted for later authentication."
+    "notes": "New snapshots require Web Locks and use separately committed SHA-256 records verified when opened; old snapshots remain readable as legacy. Snapshots exclude media and do not mark the project saved. Checksums are not signatures."
   },
   "diskExport": {
     "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A",

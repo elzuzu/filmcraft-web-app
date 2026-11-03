@@ -1,10 +1,12 @@
 import { egui_text_agent_activate } from './snippets/eframe-d31a8450ea12dfc1/inline0.js';
 import { filmcraftSpoolAcquire } from './snippets/filmcraft-web-b03f4b6780c2d92c/inline0.js';
-import * as import1 from "./snippets/filmcraft-web-b03f4b6780c2d92c/inline1.js"
+import { filmcraftCheckpointAcquire } from './snippets/filmcraft-web-b03f4b6780c2d92c/inline1.js';
+import * as import1 from "./snippets/filmcraft-web-b03f4b6780c2d92c/inline2.js"
 import * as import2 from "./snippets/filmcraft-web-b03f4b6780c2d92c/inline0.js"
 import * as import3 from "./snippets/filmcraft-web-b03f4b6780c2d92c/inline1.js"
-import * as import4 from "./snippets/eframe-d31a8450ea12dfc1/inline0.js"
+import * as import4 from "./snippets/filmcraft-web-b03f4b6780c2d92c/inline2.js"
 import * as import5 from "./snippets/eframe-d31a8450ea12dfc1/inline0.js"
+import * as import6 from "./snippets/eframe-d31a8450ea12dfc1/inline0.js"
 
 
 /**
@@ -845,6 +847,10 @@ function __wbg_get_imports() {
         __wbg_fillText_1bcec8b81ad73bd0: function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
             arg0.fillText(getStringFromWasm0(arg1, arg2), arg3, arg4);
         }, arguments); },
+        __wbg_filmcraftCheckpointAcquire_d038b9bfea87a074: function(arg0, arg1) {
+            const ret = filmcraftCheckpointAcquire(getStringFromWasm0(arg0, arg1));
+            return ret;
+        },
         __wbg_filmcraftSpoolAcquire_54bf127234a76ca6: function(arg0, arg1) {
             const ret = filmcraftSpoolAcquire(getStringFromWasm0(arg0, arg1));
             return ret;
@@ -3231,8 +3237,8 @@ function __wbg_get_imports() {
             return ret;
         },
         __wbindgen_generic_0000000000000001: function(arg0, arg1) {
-            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [Boolean, Externref], shim_idx: 24, ret: NamedExternref("Promise<any>"), inner_ret: Some(NamedExternref("Promise<any>")) }, mutable: false }) -> Externref`.
-            const ret = makeClosure(arg0, arg1, wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_);
+            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [Boolean, Externref, Externref], shim_idx: 24, ret: NamedExternref("Promise<any>"), inner_ret: Some(NamedExternref("Promise<any>")) }, mutable: false }) -> Externref`.
+            const ret = makeClosure(arg0, arg1, wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_);
             return ret;
         },
         __wbindgen_generic_0000000000000002: function(arg0, arg1) {
@@ -3393,11 +3399,12 @@ function __wbg_get_imports() {
     return {
         __proto__: null,
         "./filmcraft_web_bg.js": import0,
-        "./snippets/filmcraft-web-b03f4b6780c2d92c/inline1.js": import1,
+        "./snippets/filmcraft-web-b03f4b6780c2d92c/inline2.js": import1,
         "./snippets/filmcraft-web-b03f4b6780c2d92c/inline0.js": import2,
         "./snippets/filmcraft-web-b03f4b6780c2d92c/inline1.js": import3,
-        "./snippets/eframe-d31a8450ea12dfc1/inline0.js": import4,
+        "./snippets/filmcraft-web-b03f4b6780c2d92c/inline2.js": import4,
         "./snippets/eframe-d31a8450ea12dfc1/inline0.js": import5,
+        "./snippets/eframe-d31a8450ea12dfc1/inline0.js": import6,
     };
 }
 
@@ -3493,8 +3500,8 @@ function wasm_bindgen_e42def977be6740___convert__closures_____invoke___wasm_bind
     return ret;
 }
 
-function wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2, arg3) {
-    const ret = wasm.wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2, arg3);
+function wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2, arg3, arg4) {
+    const ret = wasm.wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2, arg3, arg4);
     return ret;
 }
 

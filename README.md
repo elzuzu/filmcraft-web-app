@@ -20,7 +20,7 @@
 - **Son** : mixage, EQ, dynamique, limiteur true-peak, automation, vumètres ITU-R BS.1770 / EBU R128.
 - **Titrer** : moteur de texte OpenType, titres, formes, tracés, sous-titres SRT/WebVTT/SCC.
 - **Exporter** : H.264 MP4 + AAC, ProRes 422 HQ, DNxHR, GIF, WAV, séquences PNG, avec rendu en arrière-plan.
-- **Prévisualiser** : rendre les aperçus vidéo de la séquence pour accélérer leur lecture pendant la session. Le cache est limité à 256 Mio de fichiers encodés ; les aperçus audio restent indisponibles.
+- **Prévisualiser** : rendre les aperçus vidéo et audio de la séquence pour accélérer leur lecture pendant la session. Le cache partagé est limité à 256 Mio ; le rendu peut utiliser davantage de mémoire temporaire.
 
 Le projet de démo s'ouvre au chargement. Vous pouvez importer vos propres fichiers par glisser-déposer ou avec **Importer**.
 

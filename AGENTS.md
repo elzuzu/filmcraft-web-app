@@ -44,9 +44,10 @@ await filmcraft.request('ui.playback', { action: 'stop' });
 
 Video previews: run `sequence.renderInToOut` or `sequence.renderSelection`, poll
 `jobs.list`, and inspect `sequence.renderBar`. Use `jobs.cancel` to stop a job.
-`wait:true` is unsupported. Previews are session-only; the retained encoded cache
-is capped at 256 MiB, with additional temporary encoding memory. Audio previews
-are not yet supported in the browser.
+`wait:true` is unsupported. `sequence.renderAudio` renders audio previews in the
+same way. Previews are session-only; the shared video/audio cache is capped at
+256 MiB, with additional temporary rendering memory. Delete all render files to
+clear audio previews; the In/Out deletion command only removes video parts.
 
 Control methods most useful to agents:
 

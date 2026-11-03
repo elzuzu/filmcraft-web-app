@@ -34,6 +34,7 @@ await filmcraft.request('ui.playback', { action: 'stop' });
 | `filmcraft.info()` | renderer, WebCodecs codecs, OPFS, threads, startup time |
 | `filmcraft.screenshot({ panel? })` | `{ pngBase64, width, height }` of the canvas or one panel |
 | `filmcraft.files()` | virtual files (imports and exports) with `path`, `size`, `kind` |
+| `filmcraft.releaseExport(path)` | remove an exact in-memory `/exports/` entry after saving it; attached proxies may become unavailable |
 | `filmcraft.readFile(path)` | `Uint8Array` of a virtual file |
 | `filmcraft.readFileChunk(path, offset, length)` | bounded `Uint8Array` (offset safe integer, length 1–8 MiB) |
 | `filmcraft.registerFile(file)` | register a local `File` for relinking without importing another item |

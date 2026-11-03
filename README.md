@@ -32,7 +32,7 @@ Le projet de démo s'ouvre au chargement. Vous pouvez importer vos propres fichi
 | Navigateurs | Chrome / Edge récents (WebGPU), Firefox et Safari récents (WebGL2) |
 | Rendu | WebGPU quand disponible, sinon WebGL2 ; `?webgl` force WebGL2, `?cpu` force le rendu CPU |
 | Réseau | 100 % statique ; les médias restent sur votre machine et ne sont jamais téléversés |
-| Poids | ~48 Mo de `.wasm` (≈15 Mo compressé), chargé une fois puis mis en cache |
+| Poids | ~47,7 Mo de `.wasm` (≈15 Mo compressé), chargé une fois puis mis en cache |
 | Compte | aucun |
 
 Si le WebGPU de votre pilote pose problème, ouvrez la page avec
@@ -56,6 +56,7 @@ const shot = await filmcraft.screenshot({});
 - [`AGENTS.md`](AGENTS.md) — référence de l'API `window.filmcraft`, modèle de temps, sélecteurs stables.
 - [`agent/manifest.json`](agent/manifest.json) — descripteur lisible par machine (version, API, renderers, commandes).
 - [`llms.txt`](llms.txt) — index pour les agents qui découvrent le site.
+- `readFileChunk(path, offset, length)` — lecture par blocs de 4 Mio pour récupérer les exports volumineux sans plafond de 256 Mio.
 
 L'outillage **MCP + skill** complet (serveur stdio, CLI, skill portable, tests
 d'intégration, scripts de build et de publication) est maintenu dans le dépôt
@@ -76,7 +77,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.2 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 

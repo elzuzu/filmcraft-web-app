@@ -11,7 +11,7 @@
 - [AGENTS.md](https://elzuzu.github.io/filmcraft-web-app/AGENTS.md): the `window.filmcraft` API, time model, command examples.
 - [agent/manifest.json](https://elzuzu.github.io/filmcraft-web-app/agent/manifest.json): machine-readable capabilities.
 - `window.filmcraft.commands()` returns the 716-command registry with parameter schemas.
-- Stable control methods: `execute`, `request`, `inspect`, `screenshot`, `importFiles`, `readFile`.
+- Stable control methods: `execute`, `request`, `inspect`, `screenshot`, `importFiles`, `readFile`, `readFileChunk`.
 
 ## Source and license
 

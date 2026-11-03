@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.3",
+  "build": "web.4",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -77,4 +77,3 @@
   },
   "license": "MIT OR Apache-2.0"
 }
-

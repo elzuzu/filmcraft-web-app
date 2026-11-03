@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.35",
+  "build": "web.36",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -74,6 +74,7 @@
       "tools": [
         "filmcraft_open",
         "filmcraft_status",
+        "filmcraft_wait_job",
         "filmcraft_commands",
         "filmcraft_execute",
         "filmcraft_request",
@@ -183,9 +184,9 @@
     ],
     "encrypted": false,
     "signed": false,
-    "maxAssets": 10000,
-    "maxImageAliases": 10000,
-    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB. Optional previews share a 256 MiB cache budget; older builds reject version 2 packages. OPFS package materialization is available; restart recovery requires Web Locks and a persistent profile. Browser-internal memory is not bounded. Source and materialized OPFS package are SHA-256 compared before publication, including without Web Locks.",
+    "maxAssets": 100000,
+    "maxImageAliases": 100000,
+    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB. Optional previews share a 256 MiB cache budget; older builds reject version 2 packages. OPFS package materialization is available; restart recovery requires Web Locks and a persistent profile. Browser-internal memory is not bounded. Source and materialized OPFS package are SHA-256 compared before publication, including without Web Locks. Web.36 supports up to 100000 assets/aliases within a 16 MiB metadata limit; older builds reject packages exceeding their limits.",
     "selection": {
       "excludeUnusedDefault": false,
       "sequences": "existing sequence IDs; used for filtering when excludeUnused is true",
@@ -209,7 +210,8 @@
     },
     "diskStorage": true,
     "openCancellation": "AbortSignal checked before final project replacement; cancellation after commit begins may be too late",
-    "createCancellation": "AbortSignal checked before publication; cancellation during consolidation waits for child jobs. Cancellation after publication begins may be too late."
+    "createCancellation": "AbortSignal checked before publication; cancellation during consolidation waits for child jobs. Cancellation after publication begins may be too late.",
+    "maxHeaderBytes": 16777216
   },
   "exportMemory": {
     "storage": "JavaScript blocks and final Blob",
@@ -246,13 +248,15 @@
     "checksummedSlots": 2,
     "exclusiveWebLock": true,
     "mediaCopiesAsync": true,
-    "notes": "New media copies pass full SHA-256 verification after copying and again after restart; older copies are legacy and unverified. Verification runs in background. New package assets and aliases are copied after successful package opening; older numeric aliases are not migrated. Snapshot-bound image manifests cover up to 10000 positions including gaps. SHA-256 is not a signature and storage may be evicted.",
+    "notes": "New media copies pass full SHA-256 verification after copying and again after restart; older copies are legacy and unverified. Verification runs in background. New package assets and aliases are copied after successful package opening; older numeric aliases are not migrated. Snapshot-bound image manifests cover up to 100000 positions total across sequences within an 8 MiB JSON limit including gaps. SHA-256 is not a signature and storage may be evicted.",
     "statusInSettings": true,
     "cleanup": "Explicitly list/delete only inactive unmarked media-v2 residues under the recovery owner lock; marked, open, legacy, package and Chromium swap files are excluded.",
-    "copyQueue": "one shared worker across imports"
+    "copyQueue": "one shared worker across imports",
+    "maxImageFramePositions": 100000,
+    "maxImageManifestBytes": 8388608
   },
   "audioImport": {
-    "mp3": "Compatible MPEG Layer III streams use indexed bounded-window decoding; without Xing/Info, contiguous frames are scanned to determine duration, with fallback for unsupported structures. Index and browser cache limits apply. VBRI version 1 with zero encoder delay is also supported; other VBRI remains on the earlier path.",
+    "mp3": "Compatible MPEG Layer III streams use indexed bounded-window decoding; without Xing/Info, contiguous frames are scanned to determine duration, with fallback for unsupported structures. Index and browser cache limits apply. VBRI version 1 with zero encoder delay is also supported; other VBRI remains on the earlier path. Web.36 supports compatible ID3v2 tags beyond 64 KiB without full-file prewarm.",
     "aacAdts": "Standalone ADTS uses a complete initial compressed-frame scan with sparse decoder checkpoints and bounded PCM windows. Long imports can take minutes; HE-AAC retains the existing core-upsample limitation. Browser and MCP report scan progress for supported ADTS; completion is determined separately."
   },
   "importProtection": "Private bridge captures an opaque project-origin token before local file preparation; older builds require explicit allowUnprotectedOrigin opt-in."

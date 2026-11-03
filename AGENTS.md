@@ -161,3 +161,5 @@ closure can leave a spool file. `deletePersistentProject(id)` deletes one
 acknowledged project snapshot. Automatic recovery uses checksummed slots and a
 Web Lock; close or reload old web.20 tabs and reload a second tab after the owner
 closes. Media copies remain asynchronous and may be offline after interruption.
+
+On web.22+, disk-backed exports also support ProRes/MOV, WAV, AIFF, FLAC and AAC/M4A. `listOrphanDiskExports()` lists inactive versioned files; `claimOrphanDiskExport(id)` verifies size and SHA-256, and `deleteOrphanDiskExport(id)` permanently deletes one inactive exact ID. Use the same persistent browser profile and origin and Web Locks. Legacy web.21 files are excluded. `recoveryMediaStatus()` reports source/proxy copy status: ready checks marker and size, not content hash or future eviction; image sequences are skipped and files over 4 GiB cannot be copied. `allReady` does not attest a project snapshot.

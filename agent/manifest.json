@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.21",
+  "build": "web.22",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -48,7 +48,11 @@
       "deletePersistentProject",
       "startDiskExport",
       "diskExportStatus",
-      "releaseDiskExport"
+      "releaseDiskExport",
+      "recoveryMediaStatus",
+      "listOrphanDiskExports",
+      "claimOrphanDiskExport",
+      "deleteOrphanDiskExport"
     ],
     "docs": "AGENTS.md"
   },
@@ -89,7 +93,11 @@
         "filmcraft_delete_persistent_project",
         "filmcraft_start_disk_export",
         "filmcraft_disk_export_status",
-        "filmcraft_release_disk_export"
+        "filmcraft_release_disk_export",
+        "filmcraft_recovery_media_status",
+        "filmcraft_list_orphan_disk_exports",
+        "filmcraft_claim_orphan_disk_export",
+        "filmcraft_delete_orphan_disk_export"
       ]
     }
   },
@@ -198,17 +206,17 @@
     "notes": "Unique snapshots do not contain media or mark the project saved. Direct synchronous /opfs/ writes are refused."
   },
   "diskExport": {
-    "format": "h264/mp4",
+    "format": "H.264/MP4, ProRes/MOV, WAV, AIFF, FLAC, AAC/M4A",
     "storage": "OPFS",
     "maxPendingBytes": 67108864,
     "fastStart": false,
     "memoryBounded": false,
-    "notes": "Only queued output bytes are capped; encoder and index remain in memory. Copy before explicit release. Abrupt closure can leave orphan files in site storage."
+    "notes": "Queued output capped; total memory is not bounded. Inactive web.22 exports can be claimed with SHA-256 validation or explicitly deleted under Web Locks in the same persistent profile and origin. Legacy files excluded."
   },
   "recovery": {
     "checksummedSlots": 2,
     "exclusiveWebLock": true,
     "mediaCopiesAsync": true,
-    "notes": "Reload second tabs after owner closes and close/reload older web.20 tabs. Without Web Locks recovery is disabled; media may remain offline after interruption or quota failure."
+    "notes": "Reload second tabs after owner closes and close/reload older web.20 tabs. Without Web Locks recovery is disabled; media may remain offline after interruption or quota failure. recoveryMediaStatus checks copy markers and sizes, not content hashes; image sequences skipped and files over 4 GiB cannot be copied."
   }
 }

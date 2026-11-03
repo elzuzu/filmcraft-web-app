@@ -1,14 +1,14 @@
 
-export function filmcraftAcquireRecoveryLock() {
-  if (!navigator.locks || !navigator.locks.request) return Promise.resolve(false);
-  return new Promise(resolve => {
+export function filmcraftSpoolLocksAvailable() { return !!(navigator.locks && navigator.locks.request); }
+export function filmcraftSpoolAcquire(id) {
+  if (!filmcraftSpoolLocksAvailable()) return Promise.reject(new Error('Web Locks unavailable'));
+  return new Promise((resolve, reject) => {
     let settled = false;
-    navigator.locks.request('filmcraft-recovery-v2', {mode:'exclusive', ifAvailable:true}, lock => {
-      if (!lock) { settled = true; resolve(false); return; }
-      window.__filmcraftRecoveryLockHeld = true;
-      settled = true; resolve(true);
-      return new Promise(done => { window.__filmcraftReleaseRecoveryLock = done; });
-    }).catch(() => { if (!settled) resolve(false); });
+    try {
+      navigator.locks.request('filmcraft-export-spool-v2:' + id, {mode:'exclusive', ifAvailable:true}, lock => {
+        if (!lock) { settled = true; resolve(null); return; }
+        return new Promise(release => { settled = true; resolve(() => release()); });
+      }).catch(e => { if (!settled) reject(e); });
+    } catch (e) { if (!settled) reject(e); }
   });
 }
-export function filmcraftRecoveryLockHeld() { return window.__filmcraftRecoveryLockHeld === true; }

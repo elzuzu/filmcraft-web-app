@@ -84,7 +84,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.21 du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.22 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 
@@ -104,3 +104,5 @@ Les marques et logos ArtCraft ne sont pas utilisés dans ce dépôt. Les capture
 montrent uniquement FilmCraft et des médias générés par FilmCraft.
 
 
+
+Les exports H.264, ProRes, WAV, AIFF, FLAC et AAC/M4A peuvent utiliser le stockage du navigateur. La reprise après fermeture nécessite le même profil, la même origine et Web Locks. Les copies de médias restent distinctes du projet et peuvent être évincées.

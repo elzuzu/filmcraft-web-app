@@ -36,6 +36,7 @@ await filmcraft.request('ui.playback', { action: 'stop' });
 | `filmcraft.files()` | virtual files (imports and exports) with `path`, `size`, `kind` |
 | `filmcraft.readFile(path)` | `Uint8Array` of a virtual file |
 | `filmcraft.readFileChunk(path, offset, length)` | bounded `Uint8Array` (offset safe integer, length 1–8 MiB) |
+| `filmcraft.registerFile(file)` | register a local `File` for relinking without importing another item |
 | `filmcraft.importFiles(FileList \| File[])` | `{ items, errors, paths }` |
 | `filmcraft.importUrl(url, name?)` | fetch a URL and import it |
 | `filmcraft.openProject(urlOrFile)` | open a `.fcproj` |

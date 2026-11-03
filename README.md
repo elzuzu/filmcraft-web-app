@@ -77,7 +77,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.2 du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.3 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 
@@ -95,4 +95,5 @@ FilmCraft est créé par l'équipe **ArtCraft** et ses contributeurs. Cette buil
 est une distribution indépendante, **non affiliée et non endossée** par ArtCraft.
 Les marques et logos ArtCraft ne sont pas utilisés dans ce dépôt. Les captures
 montrent uniquement FilmCraft et des médias générés par FilmCraft.
+
 

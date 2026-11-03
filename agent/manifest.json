@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.8",
+  "build": "web.9",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -84,5 +84,11 @@
     "supportsCancellation": true,
     "virtualDestination": "/exports/Proxies",
     "notes": "Inspect child jobs for partial failures; wait:true is unsupported."
+  },
+  "maskTracking": {
+    "cooperative": true,
+    "supportsWait": false,
+    "supportsCancellation": true,
+    "notes": "Pending media reads are retried. Project edits or replacement stop tracking; completed keyframes are retained."
   }
 }

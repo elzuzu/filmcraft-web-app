@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.31",
+  "build": "web.32",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -225,7 +225,8 @@
     "notes": "New snapshots require Web Locks and use separately committed SHA-256 records verified when opened; old snapshots remain readable as legacy. Snapshots exclude media and do not mark the project saved. Checksums are not signatures.",
     "cleanup": "Explicitly list/delete inactive v2 snapshot files without a marker under per-ID Web Locks; such files may contain recoverable user data. Marked, legacy, swap and marker-only remnants are excluded.",
     "projectOpenCancellation": "AbortSignal and document revision checked before replacing the project; older builds require explicit MCP opt-in for uncancellable behavior.",
-    "openCancellation": "AbortSignal checked before project replacement; cancellation after commit starts may be too late."
+    "openCancellation": "AbortSignal checked before project replacement; cancellation after commit starts may be too late.",
+    "createCancellation": "AbortSignal checked before acknowledgement; provisional-file removal is attempted while holding the snapshot lock. Removal failure or abrupt termination can leave remnants. Older builds require explicit MCP opt-in for uncancellable creation."
   },
   "diskExport": {
     "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A",

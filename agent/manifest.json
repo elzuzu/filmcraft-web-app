@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.23",
+  "build": "web.24",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -52,7 +52,8 @@
       "recoveryMediaStatus",
       "listOrphanDiskExports",
       "claimOrphanDiskExport",
-      "deleteOrphanDiskExport"
+      "deleteOrphanDiskExport",
+      "startDiskProxies"
     ],
     "docs": "AGENTS.md"
   },
@@ -97,7 +98,8 @@
         "filmcraft_recovery_media_status",
         "filmcraft_list_orphan_disk_exports",
         "filmcraft_claim_orphan_disk_export",
-        "filmcraft_delete_orphan_disk_export"
+        "filmcraft_delete_orphan_disk_export",
+        "filmcraft_start_disk_proxies"
       ]
     }
   },
@@ -111,8 +113,9 @@
     "aggregateJob": true,
     "supportsCancellation": true,
     "virtualDestination": "/exports/Proxies",
-    "notes": "Inspect child jobs for partial failures; wait:true is unsupported. Completed files consume browser memory.",
-    "encoderQueue": "one at a time"
+    "notes": "OPFS-backed proxy jobs attach on completion; a separate asynchronous recovery copy requires extra storage and must be verified. Inspect child jobs for partial failures; wait:true unsupported.",
+    "encoderQueue": "one at a time",
+    "diskStorage": true
   },
   "maskTracking": {
     "cooperative": true,
@@ -217,7 +220,7 @@
     "checksummedSlots": 2,
     "exclusiveWebLock": true,
     "mediaCopiesAsync": true,
-    "notes": "Reload second tabs after owner closes and close/reload older web.20 tabs. Without Web Locks recovery is disabled; media may remain offline after interruption or quota failure. recoveryMediaStatus checks copy markers and sizes, not content hashes; image sequences skipped and copies are limited by browser quota and available storage.",
+    "notes": "New media copies pass full SHA-256 verification after copying and again after restart; old copies are legacy and unverified. Verification runs in background. Eligible /files image sequences use snapshot-bound manifests up to 10000 positions including gaps; package aliases untracked. SHA-256 is not a signature and storage may be evicted.",
     "statusInSettings": true
   }
 }

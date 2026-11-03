@@ -84,7 +84,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.23 du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.24 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 
@@ -108,3 +108,5 @@ montrent uniquement FilmCraft et des médias générés par FilmCraft.
 Les exports H.264, ProRes, DNxHR, APV, Motion JPEG, MXF OP1a, WAV, AIFF, FLAC et AAC/M4A peuvent utiliser le stockage du navigateur. La reprise après fermeture nécessite le même profil, la même origine et Web Locks. Les copies de médias restent distinctes du projet et peuvent être évincées.
 
 Les réglages de sauvegarde automatique affichent l’état des copies de médias de récupération. La taille des copies dépend du quota et de l’espace disponibles ; leur présence ne remplace pas une sauvegarde des originaux.
+
+Les nouvelles copies de récupération sont vérifiées par empreinte SHA-256, y compris après redémarrage. Les anciennes copies sont signalées comme non vérifiées. Les séquences d’images locales utilisent un inventaire lié à la sauvegarde ; les séquences issues de paquets restent à vérifier séparément. Les proxys peuvent aussi être créés sur le stockage du navigateur ; leur copie de récupération est distincte et asynchrone.

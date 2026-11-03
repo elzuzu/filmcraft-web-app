@@ -42,6 +42,12 @@ await filmcraft.request('ui.playback', { action: 'stop' });
 | `filmcraft.importUrl(url, name?)` | fetch a URL and import it |
 | `filmcraft.openProject(urlOrFile)` | open a `.fcproj` |
 
+Video previews: run `sequence.renderInToOut` or `sequence.renderSelection`, poll
+`jobs.list`, and inspect `sequence.renderBar`. Use `jobs.cancel` to stop a job.
+`wait:true` is unsupported. Previews are session-only; the retained encoded cache
+is capped at 256 MiB, with additional temporary encoding memory. Audio previews
+are not yet supported in the browser.
+
 Control methods most useful to agents:
 
 | Method | Parameters |

@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.11",
+  "build": "web.12",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -98,5 +98,13 @@
     "scope": "exact /exports/ in-memory files",
     "explicit": true,
     "note": "Save files before releasing; active readers may retain memory and attached proxies may become unavailable."
+  },
+  "videoPreviews": {
+    "cooperative": true,
+    "sessionOnly": true,
+    "retainedEncodedBytesMax": 268435456,
+    "supportsWait": false,
+    "playback": true,
+    "notes": "Temporary encoder memory may exceed the cache budget. Audio previews are unavailable."
   }
 }

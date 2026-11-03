@@ -139,3 +139,5 @@ scripts. Ask the maintainer for access. The public page above is sufficient for
 any client that can evaluate JavaScript in a browser, including Playwright,
 Puppeteer, Selenium or a browser extension.
 
+
+Audio output: `filmcraft.info().audioBackend` reports `worklet`, `script-processor`, or `unavailable` after initialization. A main-thread fallback is attempted if the worklet fails or stalls for two seconds; it can have higher latency and may underrun under load. A browser gesture may be required.

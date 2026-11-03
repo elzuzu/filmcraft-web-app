@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.30",
+  "build": "web.31",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -117,7 +117,8 @@
     "wavRandomAccessPrewarm": true,
     "aiffRandomAccess": "uncompressed PCM 8/16/24/32-bit; full prewarm avoided when compatible COMM lies within first 64 KiB",
     "aifcRandomAccess": "integer PCM NONE, twos, sowt, 8/16/24/32-bit; full prewarm avoided when compatible COMM is within first 64 KiB",
-    "flacRandomAccess": "native FLAC with STREAMINFO and known duration; bounded decoded window, browser and seek caches remain input-dependent"
+    "flacRandomAccess": "native FLAC with STREAMINFO and known duration; bounded decoded window, browser and seek caches remain input-dependent",
+    "importCancellation": "Pending imports check AbortSignal and project identity before mutation; earlier batch items or placements may already exist."
   },
   "license": "MIT OR Apache-2.0",
   "proxy": {
@@ -223,7 +224,8 @@
     "evictable": true,
     "notes": "New snapshots require Web Locks and use separately committed SHA-256 records verified when opened; old snapshots remain readable as legacy. Snapshots exclude media and do not mark the project saved. Checksums are not signatures.",
     "cleanup": "Explicitly list/delete inactive v2 snapshot files without a marker under per-ID Web Locks; such files may contain recoverable user data. Marked, legacy, swap and marker-only remnants are excluded.",
-    "projectOpenCancellation": "AbortSignal and document revision checked before replacing the project; older builds require explicit MCP opt-in for uncancellable behavior."
+    "projectOpenCancellation": "AbortSignal and document revision checked before replacing the project; older builds require explicit MCP opt-in for uncancellable behavior.",
+    "openCancellation": "AbortSignal checked before project replacement; cancellation after commit starts may be too late."
   },
   "diskExport": {
     "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A",

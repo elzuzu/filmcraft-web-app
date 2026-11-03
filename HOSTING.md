@@ -1,5 +1,11 @@
 # Hosting FilmCraft for the web
 
+This repository is already deployed with **GitHub Pages** from the `main` branch
+at <https://elzuzu.github.io/filmcraft-web-app/>. Pages serves `.wasm` as
+`application/wasm` and gzips it (48 MB → about 15 MB on the wire); no server code
+or special isolation headers are needed. To deploy elsewhere, copy the repository
+contents to any static host and keep the settings below.
+
 `filmcraft-web-<version>.zip` (from the GitHub release, or `packaging/web/package.sh`) holds a
 static site in `filmcraft-web-<version>/`:
 

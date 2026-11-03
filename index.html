@@ -1,10 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- filmcraft-web:meta -->
+  <meta name="description" content="FilmCraft Web : un éditeur vidéo non linéaire complet dans le navigateur (WebGPU/WebGL2). Montage, couleur, effets, son, titres et export H.264. Sans installation, sans compte, sans envoi de médias.">
+  <meta name="theme-color" content="#1b1c1f">
+  <meta name="agent-api" content="window.filmcraft">
+  <meta name="agent-manifest" content="agent/manifest.json">
+  <link rel="canonical" href="https://elzuzu.github.io/filmcraft-web-app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FilmCraft Web">
+  <meta property="og:title" content="FilmCraft Web — éditeur vidéo dans le navigateur">
+  <meta property="og:description" content="Montage, étalonnage, effets, son, titres et export H.264, directement dans le navigateur. Sans installation ni envoi de médias.">
+  <meta property="og:url" content="https://elzuzu.github.io/filmcraft-web-app/">
+  <meta property="og:image" content="https://elzuzu.github.io/filmcraft-web-app/docs/screenshot.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- /filmcraft-web:meta -->
   <meta name="color-scheme" content="dark">
-  <title>FilmCraft</title>
+  <title>FilmCraft — éditeur vidéo dans le navigateur</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
     html, body { margin: 0; height: 100%; overflow: hidden; background: #1b1c1f; }
@@ -29,7 +43,8 @@
 </head>
 <body>
   <canvas id="filmcraft_canvas"></canvas>
-  <div id="loading"><img src="favicon.png" alt=""><div id="status">Loading FilmCraft…</div></div>
+  <div id="loading"><img src="favicon.png" alt=""><div id="status">Chargement de FilmCraft…</div></div>
+  <noscript><p style="color:#c9c9cc;font:14px system-ui;text-align:center;margin-top:40vh">FilmCraft nécessite JavaScript et WebGL2 ou WebGPU.</p></noscript>
   <div id="fatal" role="alertdialog" aria-labelledby="fatal-title">
     <div class="box">
       <h1 id="fatal-title">FilmCraft stopped working</h1>

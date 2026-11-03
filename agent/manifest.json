@@ -1,0 +1,54 @@
+{
+  "name": "filmcraft-web",
+  "version": "0.17.0",
+  "build": "web.1",
+  "built": "2026-11-03",
+  "url": "https://elzuzu.github.io/filmcraft-web-app/",
+  "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
+  "upstream": {
+    "repository": "https://github.com/storytold/filmcraft",
+    "commit": "32749e34f611735460e9773335345db026b7b037",
+    "license": "MIT OR Apache-2.0"
+  },
+  "source": {
+    "public": false,
+    "repository": "filmcraft-agent",
+    "access": "on request"
+  },
+  "renderers": ["webgpu", "webgl2"],
+  "commands": 716,
+  "time": {
+    "ticksPerSecond": 254016000000
+  },
+  "api": {
+    "global": "window.filmcraft",
+    "methods": [
+      "execute", "request", "commands", "inspect", "info", "screenshot",
+      "files", "readFile", "importFiles", "importUrl", "openProject"
+    ],
+    "docs": "AGENTS.md"
+  },
+  "agent": {
+    "manifest": "agent/manifest.json",
+    "guide": "llms.txt",
+    "skill": "filmcraft-web",
+    "mcp": {
+      "available": true,
+      "transport": "stdio",
+      "repository": "filmcraft-agent",
+      "tools": [
+        "filmcraft_open", "filmcraft_status", "filmcraft_commands",
+        "filmcraft_execute", "filmcraft_request", "filmcraft_inspect",
+        "filmcraft_screenshot", "filmcraft_import", "filmcraft_export",
+        "filmcraft_render", "filmcraft_save", "filmcraft_click",
+        "filmcraft_key", "filmcraft_type", "filmcraft_close"
+      ]
+    }
+  },
+  "media": {
+    "sample": "samples/ocean-sunset.mp4",
+    "procedural": true
+  },
+  "license": "MIT OR Apache-2.0"
+}
+

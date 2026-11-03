@@ -1,0 +1,8 @@
+asset:        docs/screenshot.jpg
+title:        FilmCraft Web demo project
+author:       FilmCraft contributors
+source:       original work (screenshot of the FilmCraft web build)
+license:      MIT OR Apache-2.0
+added:        2026-11-03 by elzuzu
+notes:        Captured from https://elzuzu.github.io/filmcraft-web-app/ at 1600x1000 on 2026-11-03.
+              Shows only FilmCraft and its procedurally generated demo media.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elzuzu.github.io/filmcraft-web-app/sitemap.xml

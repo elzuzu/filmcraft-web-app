@@ -1,0 +1,8 @@
+asset:        docs/screenshot-agent.jpg
+title:        Agent-created two-shot cut in FilmCraft Web
+author:       FilmCraft contributors
+source:       original work (screenshot of the FilmCraft web build)
+license:      MIT OR Apache-2.0
+added:        2026-11-03 by elzuzu
+notes:        Captured after an MCP-driven workflow created a project, imported procedural
+              OceanSunset footage, built a two-shot sequence and rendered it.

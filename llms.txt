@@ -1,0 +1,21 @@
+# FilmCraft Web
+
+> FilmCraft is a professional non-linear video editor running entirely in the browser as WebAssembly (WebGPU/WebGL2). Timeline, colour grading, effects, audio, titles, captions and H.264/ProRes export. No installation, no account, no upload.
+
+## Play
+
+- [FilmCraft Web](https://elzuzu.github.io/filmcraft-web-app/): the editor, opens the demo project.
+
+## For agents
+
+- [AGENTS.md](https://elzuzu.github.io/filmcraft-web-app/AGENTS.md): the `window.filmcraft` API, time model, command examples.
+- [agent/manifest.json](https://elzuzu.github.io/filmcraft-web-app/agent/manifest.json): machine-readable capabilities.
+- `window.filmcraft.commands()` returns the 716-command registry with parameter schemas.
+- Stable control methods: `execute`, `request`, `inspect`, `screenshot`, `importFiles`, `readFile`.
+
+## Source and license
+
+- Distribution only: the application source and the MCP/skill tooling are kept in a private repository; access on request.
+- Upstream FilmCraft: https://github.com/storytold/filmcraft (MIT OR Apache-2.0).
+- Third-party notices: NOTICE. Media credits: ATTRIBUTION.md.
+- Independent web build, not affiliated with or endorsed by ArtCraft.

@@ -1,0 +1,8 @@
+asset:        samples/ocean-sunset.mp4
+title:        Ocean Sunset procedural demo clip
+author:       FilmCraft contributors
+source:       original work (rendered by FilmCraft from its procedural OceanSunset generator)
+license:      MIT OR Apache-2.0
+added:        2026-11-03 by elzuzu
+notes:        2.0 s, 640x360, H.264 High with AAC stereo. Generated in the browser build
+              0.17.0; contains no third-party footage or music.

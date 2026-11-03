@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.33",
+  "build": "web.34",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -78,6 +78,9 @@
         "filmcraft_inspect",
         "filmcraft_screenshot",
         "filmcraft_import",
+        "filmcraft_cancel_import",
+        "filmcraft_import_status",
+        "filmcraft_start_import",
         "filmcraft_export",
         "filmcraft_render",
         "filmcraft_save",
@@ -229,12 +232,12 @@
     "createCancellation": "AbortSignal checked before acknowledgement; provisional-file removal is attempted while holding the snapshot lock. Removal failure or abrupt termination can leave remnants. Older builds require explicit MCP opt-in for uncancellable creation."
   },
   "diskExport": {
-    "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A",
+    "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A, GIF",
     "storage": "OPFS",
     "maxPendingBytes": 67108864,
     "fastStart": false,
     "memoryBounded": false,
-    "notes": "Queued output capped; total memory is not bounded. Inactive web.22 exports can be claimed with SHA-256 validation or explicitly deleted under Web Locks in the same persistent profile and origin. Legacy files excluded.",
+    "notes": "Queued output capped; total memory is not bounded. Inactive web.22 exports can be claimed with SHA-256 validation or explicitly deleted under Web Locks in the same persistent profile and origin. Legacy files excluded. GIF writes incrementally; encoder and browser memory are not bounded.",
     "captionSidecar": "SRT or VTT in session memory, with SHA-256 verification for agent copies; a restart-recovered spool does not include the caption file."
   },
   "recovery": {
@@ -247,7 +250,7 @@
     "copyQueue": "one shared worker across imports"
   },
   "audioImport": {
-    "mp3": "Compatible standalone Xing/Info MP3 uses indexed bounded-window decoding; others retain the previous whole-file path. Index grows with frame count and is capped at 8 million frames.",
-    "aacAdts": "Existing whole-file path."
+    "mp3": "Compatible MPEG Layer III streams use indexed bounded-window decoding; without Xing/Info, contiguous frames are scanned to determine duration, with fallback for unsupported structures. Index and browser cache limits apply.",
+    "aacAdts": "Standalone ADTS uses a complete initial compressed-frame scan with sparse decoder checkpoints and bounded PCM windows. Long imports can take minutes; HE-AAC retains the existing core-upsample limitation."
   }
 }

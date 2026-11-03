@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.22",
+  "build": "web.23",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -206,7 +206,7 @@
     "notes": "Unique snapshots do not contain media or mark the project saved. Direct synchronous /opfs/ writes are refused."
   },
   "diskExport": {
-    "format": "H.264/MP4, ProRes/MOV, WAV, AIFF, FLAC, AAC/M4A",
+    "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A",
     "storage": "OPFS",
     "maxPendingBytes": 67108864,
     "fastStart": false,
@@ -217,6 +217,7 @@
     "checksummedSlots": 2,
     "exclusiveWebLock": true,
     "mediaCopiesAsync": true,
-    "notes": "Reload second tabs after owner closes and close/reload older web.20 tabs. Without Web Locks recovery is disabled; media may remain offline after interruption or quota failure. recoveryMediaStatus checks copy markers and sizes, not content hashes; image sequences skipped and files over 4 GiB cannot be copied."
+    "notes": "Reload second tabs after owner closes and close/reload older web.20 tabs. Without Web Locks recovery is disabled; media may remain offline after interruption or quota failure. recoveryMediaStatus checks copy markers and sizes, not content hashes; image sequences skipped and copies are limited by browser quota and available storage.",
+    "statusInSettings": true
   }
 }

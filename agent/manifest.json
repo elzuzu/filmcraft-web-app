@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.14",
+  "build": "web.15",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -39,7 +39,9 @@
       "openProject",
       "readFileChunk",
       "registerFile",
-      "releaseExport"
+      "releaseExport",
+      "createPackage",
+      "openPackage"
     ],
     "docs": "AGENTS.md"
   },
@@ -71,7 +73,9 @@
         "filmcraft_relink",
         "filmcraft_attach_proxy",
         "filmcraft_files",
-        "filmcraft_release_export"
+        "filmcraft_release_export",
+        "filmcraft_package_project",
+        "filmcraft_open_package"
       ]
     }
   },
@@ -121,5 +125,22 @@
     "fallbackTimeoutMs": 2000,
     "statusField": "audioBackend",
     "notes": "Fallback runs on the main thread and may underrun under load; a user gesture may be required."
+  },
+  "portableProject": {
+    "extension": "fcpack",
+    "checksums": "SHA-256",
+    "contains": [
+      "project",
+      "linked media",
+      "proxies"
+    ],
+    "limitations": [
+      "image sequences",
+      "selective collection",
+      "transcoding",
+      "preview cache"
+    ],
+    "encrypted": false,
+    "signed": false
   }
 }

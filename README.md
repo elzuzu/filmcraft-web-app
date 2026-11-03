@@ -22,6 +22,8 @@
 - **Exporter** : H.264 MP4 + AAC, ProRes 422 HQ, DNxHR, GIF, WAV, séquences PNG, avec rendu en arrière-plan.
 - **Prévisualiser** : rendre les aperçus vidéo et audio de la séquence pour accélérer leur lecture pendant la session. Le cache partagé est limité à 256 Mio ; le rendu peut utiliser davantage de mémoire temporaire.
 
+Le **gestionnaire de projet** peut télécharger un paquet `.fcpack` contenant une copie du projet, ses médias liés et ses proxys. Ouvrez ce paquet par **Fichier → Ouvrir** ou par glisser-déposer. Les séquences d’images, le transcodage et les aperçus de rendu ne sont pas inclus ; les médias manquants empêchent la création. Le paquet vérifie ses données, mais n’est ni chiffré ni signé.
+
 Le projet de démo s'ouvre au chargement. Vous pouvez importer vos propres fichiers par glisser-déposer ou avec **Importer**.
 
 **Clip d'essai :** [`samples/ocean-sunset.mp4`](samples/ocean-sunset.mp4) (2 s, 640×360, généré par FilmCraft) — téléchargez-le puis glissez-le dans l'application.

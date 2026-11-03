@@ -141,3 +141,5 @@ Puppeteer, Selenium or a browser extension.
 
 
 Audio output: `filmcraft.info().audioBackend` reports `worklet`, `script-processor`, or `unavailable` after initialization. A main-thread fallback is attempted if the worklet fails or stalls for two seconds; it can have higher latency and may underrun under load. A browser gesture may be required.
+
+Portable projects: `filmcraft.createPackage(false)` returns a virtual `.fcpack` path; copy it via `readFileChunk`. `filmcraft.openPackage(file)` verifies and opens one. The UI offers download in Project Manager and opens packages with File ▸ Open or drag and drop. Image sequences, selective collection, transcoding and preview cache are unsupported. Packages have SHA-256 integrity checks but are not encrypted or signed.

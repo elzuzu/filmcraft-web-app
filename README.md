@@ -84,7 +84,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.29 du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.30 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 
@@ -120,3 +120,5 @@ Les paquets écrits sur le stockage navigateur sont comparés par empreinte à l
 Les AIFF PCM non compressés pris en charge peuvent être lus à la demande. Les sauvegardes explicites sont relues et vérifiées avant confirmation ; l’annulation de l’ouverture d’un paquet empêche le remplacement du projet si elle intervient avant sa validation finale.
 
 Les variantes AIFF-C PCM prises en charge sont lues à la demande. Les nouvelles sauvegardes explicites conservent une empreinte vérifiée à la réouverture et nécessitent Web Locks ; les anciennes restent lisibles. La création de paquet peut être annulée avant publication.
+
+Les FLAC natifs à durée connue peuvent être lus par fenêtres. L’ouverture d’un projet contrôle les modifications et l’annulation avant remplacement. Un agent peut lister et supprimer explicitement les fichiers de sauvegarde v2 sans marqueur ; ils peuvent contenir des données récupérables.

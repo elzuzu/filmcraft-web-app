@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.29",
+  "build": "web.30",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -55,7 +55,9 @@
       "deleteOrphanDiskExport",
       "startDiskProxies",
       "listUncommittedRecoveryMedia",
-      "deleteUncommittedRecoveryMedia"
+      "deleteUncommittedRecoveryMedia",
+      "listUncommittedPersistentProjects",
+      "deleteUncommittedPersistentProject"
     ],
     "docs": "AGENTS.md"
   },
@@ -103,7 +105,9 @@
         "filmcraft_delete_orphan_disk_export",
         "filmcraft_start_disk_proxies",
         "filmcraft_list_uncommitted_recovery_media",
-        "filmcraft_delete_uncommitted_recovery_media"
+        "filmcraft_delete_uncommitted_recovery_media",
+        "filmcraft_list_uncommitted_persistent_projects",
+        "filmcraft_delete_uncommitted_persistent_project"
       ]
     }
   },
@@ -112,7 +116,8 @@
     "procedural": true,
     "wavRandomAccessPrewarm": true,
     "aiffRandomAccess": "uncompressed PCM 8/16/24/32-bit; full prewarm avoided when compatible COMM lies within first 64 KiB",
-    "aifcRandomAccess": "integer PCM NONE, twos, sowt, 8/16/24/32-bit; full prewarm avoided when compatible COMM is within first 64 KiB"
+    "aifcRandomAccess": "integer PCM NONE, twos, sowt, 8/16/24/32-bit; full prewarm avoided when compatible COMM is within first 64 KiB",
+    "flacRandomAccess": "native FLAC with STREAMINFO and known duration; bounded decoded window, browser and seek caches remain input-dependent"
   },
   "license": "MIT OR Apache-2.0",
   "proxy": {
@@ -216,7 +221,9 @@
     "maxBytes": 268435456,
     "scope": "browser profile and origin",
     "evictable": true,
-    "notes": "New snapshots require Web Locks and use separately committed SHA-256 records verified when opened; old snapshots remain readable as legacy. Snapshots exclude media and do not mark the project saved. Checksums are not signatures."
+    "notes": "New snapshots require Web Locks and use separately committed SHA-256 records verified when opened; old snapshots remain readable as legacy. Snapshots exclude media and do not mark the project saved. Checksums are not signatures.",
+    "cleanup": "Explicitly list/delete inactive v2 snapshot files without a marker under per-ID Web Locks; such files may contain recoverable user data. Marked, legacy, swap and marker-only remnants are excluded.",
+    "projectOpenCancellation": "AbortSignal and document revision checked before replacing the project; older builds require explicit MCP opt-in for uncancellable behavior."
   },
   "diskExport": {
     "format": "H.264/MP4, ProRes/MOV, DNxHR/MOV, APV/MOV, Motion JPEG/MOV, MXF OP1a, WAV, AIFF, FLAC, AAC/M4A",

@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.18",
+  "build": "web.19",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -136,7 +136,7 @@
       "numbered image sequences"
     ],
     "limitations": [
-      "transcoding"
+      "audio-only and nonstandard media are copied whole during consolidation"
     ],
     "encrypted": false,
     "signed": false,
@@ -150,11 +150,29 @@
       "nestedDependencies": true,
       "includePreviewsDefault": false
     },
-    "previewPackageVersion": 2
+    "previewPackageVersion": 2,
+    "consolidation": {
+      "available": true,
+      "mode": "consolidate",
+      "defaultPreset": "prores_lt",
+      "defaultHandles": 30,
+      "resultFields": [
+        "transcoded",
+        "transcodedItems",
+        "copiedMedia",
+        "job"
+      ],
+      "notes": "Eligible video is re-encoded; unsupported media are copied whole. Proxies and previews are unavailable during consolidation."
+    }
   },
   "exportMemory": {
     "storage": "JavaScript blocks and final Blob",
     "boundedMemory": false,
     "notes": "Seekable encoded exports avoid one growing WebAssembly buffer; browser memory is still used and Blob construction may copy. PNG and GIF use the existing path."
+  },
+  "exportDestinations": {
+    "virtual": "/exports/",
+    "opfsDirectExport": false,
+    "notes": "Direct OPFS exports cannot confirm durable writes and are rejected; save generated output explicitly."
   }
 }

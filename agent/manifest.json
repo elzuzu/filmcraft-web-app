@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.19",
+  "build": "web.20",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -41,7 +41,10 @@
       "registerFile",
       "releaseExport",
       "createPackage",
-      "openPackage"
+      "openPackage",
+      "savePersistentProject",
+      "listPersistentProjects",
+      "openPersistentProject"
     ],
     "docs": "AGENTS.md"
   },
@@ -75,7 +78,10 @@
         "filmcraft_files",
         "filmcraft_release_export",
         "filmcraft_package_project",
-        "filmcraft_open_package"
+        "filmcraft_open_package",
+        "filmcraft_save_persistent_project",
+        "filmcraft_list_persistent_projects",
+        "filmcraft_open_persistent_project"
       ]
     }
   },
@@ -136,7 +142,7 @@
       "numbered image sequences"
     ],
     "limitations": [
-      "audio-only and nonstandard media are copied whole during consolidation"
+      "multichannel and other unsupported media are copied whole during consolidation"
     ],
     "encrypted": false,
     "signed": false,
@@ -162,7 +168,7 @@
         "copiedMedia",
         "job"
       ],
-      "notes": "Eligible video is re-encoded; unsupported media are copied whole. Proxies and previews are unavailable during consolidation."
+      "notes": "Eligible video and mono/stereo audio are re-encoded; unsupported media are copied whole. Proxies and previews are unavailable during consolidation."
     }
   },
   "exportMemory": {
@@ -174,5 +180,13 @@
     "virtual": "/exports/",
     "opfsDirectExport": false,
     "notes": "Direct OPFS exports cannot confirm durable writes and are rejected; save generated output explicitly."
+  },
+  "persistentProjects": {
+    "acknowledged": true,
+    "projectOnly": true,
+    "maxBytes": 268435456,
+    "scope": "browser profile and origin",
+    "evictable": true,
+    "notes": "Unique snapshots do not contain media or mark the project saved. Direct synchronous /opfs/ writes are refused."
   }
 }

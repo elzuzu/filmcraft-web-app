@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.26",
+  "build": "web.27",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -109,7 +109,8 @@
   },
   "media": {
     "sample": "samples/ocean-sunset.mp4",
-    "procedural": true
+    "procedural": true,
+    "wavRandomAccessPrewarm": true
   },
   "license": "MIT OR Apache-2.0",
   "proxy": {
@@ -171,7 +172,7 @@
     "signed": false,
     "maxAssets": 10000,
     "maxImageAliases": 10000,
-    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB. Optional previews share a 256 MiB cache budget; older builds reject version 2 packages. OPFS package materialization is available; restart recovery requires Web Locks and a persistent profile. Browser-internal memory is not bounded.",
+    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB. Optional previews share a 256 MiB cache budget; older builds reject version 2 packages. OPFS package materialization is available; restart recovery requires Web Locks and a persistent profile. Browser-internal memory is not bounded. Source and materialized OPFS package are SHA-256 compared before publication, including without Web Locks.",
     "selection": {
       "excludeUnusedDefault": false,
       "sequences": "existing sequence IDs; used for filtering when excludeUnused is true",

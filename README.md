@@ -84,7 +84,7 @@ nécessaire pour charger le binaire ; ce n'est pas le code du projet.
   [`NOTICE`](NOTICE) ; les crédits et licences des médias dans
   [`ATTRIBUTION.md`](ATTRIBUTION.md).
 
-**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.26 du
+**Version :** FilmCraft `0.17.0` — commit amont `32749e34f611`, build web.27 du
 3 novembre 2026. Les empreintes des fichiers distribués sont dans
 [`SHA256SUMS.txt`](SHA256SUMS.txt) :
 
@@ -114,3 +114,5 @@ Les nouvelles copies de récupération sont vérifiées par empreinte SHA-256, y
 Les médias et séquences de nouveaux paquets ouverts peuvent être copiés pour la récupération après validation. Les anciens chemins numériques de paquets ne sont pas migrés : conservez et rouvrez le paquet d’origine. Un nettoyage explicite des seules copies interrompues non marquées est disponible pour les agents.
 
 Les paquets portables peuvent utiliser le stockage du navigateur ; leur récupération après fermeture nécessite Web Locks et le même profil. Les copies de médias de récupération sont traitées une à une. La mémoire interne du navigateur reste dépendante du projet.
+
+Les paquets écrits sur le stockage navigateur sont comparés par empreinte à leur source avant publication. Les WAV sont préparés à la lecture sans précharger systématiquement tout le fichier ; le cache et la copie de récupération restent soumis aux ressources disponibles.

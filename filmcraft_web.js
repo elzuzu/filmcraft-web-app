@@ -3191,8 +3191,8 @@ function __wbg_get_imports() {
             return ret;
         },
         __wbindgen_generic_0000000000000001: function(arg0, arg1) {
-            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [Boolean], shim_idx: 18, ret: NamedExternref("Promise<any>"), inner_ret: Some(NamedExternref("Promise<any>")) }, mutable: false }) -> Externref`.
-            const ret = makeClosure(arg0, arg1, wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__js_sys_e90b32ed162e2e1___Promise__true_);
+            // Cast intrinsic for `Closure(Closure { owned: true, function: Function { arguments: [Boolean, Externref], shim_idx: 18, ret: NamedExternref("Promise<any>"), inner_ret: Some(NamedExternref("Promise<any>")) }, mutable: false }) -> Externref`.
+            const ret = makeClosure(arg0, arg1, wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_);
             return ret;
         },
         __wbindgen_generic_0000000000000002: function(arg0, arg1) {
@@ -3440,8 +3440,8 @@ function wasm_bindgen_e42def977be6740___convert__closures_____invoke___js_sys_e9
     wasm.wasm_bindgen_e42def977be6740___convert__closures_____invoke___js_sys_e90b32ed162e2e1___Function_fn_wasm_bindgen_e42def977be6740___JsValue_____wasm_bindgen_e42def977be6740___sys__Undefined___js_sys_e90b32ed162e2e1___Function_fn_wasm_bindgen_e42def977be6740___JsValue_____wasm_bindgen_e42def977be6740___sys__Undefined_______true_(arg0, arg1, arg2, arg3);
 }
 
-function wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2) {
-    const ret = wasm.wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2);
+function wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2, arg3) {
+    const ret = wasm.wasm_bindgen_e42def977be6740___convert__closures_____invoke___bool__wasm_bindgen_e42def977be6740___JsValue__js_sys_e90b32ed162e2e1___Promise__true_(arg0, arg1, arg2, arg3);
     return ret;
 }
 

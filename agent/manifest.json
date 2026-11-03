@@ -1,7 +1,7 @@
 {
   "name": "filmcraft-web",
   "version": "0.17.0",
-  "build": "web.16",
+  "build": "web.17",
   "built": "2026-11-03",
   "url": "https://elzuzu.github.io/filmcraft-web-app/",
   "description": "FilmCraft non-linear video editor running in the browser via WebAssembly, WebGPU/WebGL2.",
@@ -136,7 +136,6 @@
       "numbered image sequences"
     ],
     "limitations": [
-      "selective collection",
       "transcoding",
       "preview cache"
     ],
@@ -144,6 +143,12 @@
     "signed": false,
     "maxAssets": 10000,
     "maxImageAliases": 10000,
-    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB."
+    "notes": "Sequences preserve gaps and isolate names. Each still-image read is limited to 256 MiB.",
+    "selection": {
+      "excludeUnusedDefault": false,
+      "sequences": "existing sequence IDs; used for filtering when excludeUnused is true",
+      "includeProxiesDefault": true,
+      "nestedDependencies": true
+    }
   }
 }
